@@ -1,0 +1,31 @@
+{
+  "name": "bson-transform-stream",
+  "version": "0.0.0",
+  "description": "A Node.js Transform stream for processing BSON data.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/casantosmu/bson-transform-stream.git"
+  },
+  "author": {
+    "name": "Carlos Santos",
+    "email": "casantosmu@gmail.com",
+    "url": "https://casantosmu.com"
+  },
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "files": [
+    "index.js"
+  ],
+  "keywords": [
+    "bson",
+    "stream",
+    "nodejs"
+  ],
+  "dependencies": {
+    "bson": "^6.10.0"
+  }
+}
