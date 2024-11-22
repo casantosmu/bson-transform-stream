@@ -1,13 +1,21 @@
 const { Transform } = require("node:stream");
 const { BSON } = require("bson");
 
+/**
+ * A Transform stream that parses BSON data and emits JavaScript objects.
+ */
 class BSONTransformStream extends Transform {
-  constructor() {
+  /**
+   * Creates a new BSONTransformStream instance.
+   * @param {BSON.DeserializeOptions} [options] - Optional BSON deserialization options.
+   */
+  constructor(options) {
     super({
       readableObjectMode: true,
       writableObjectMode: false,
     });
     this.remaining = Buffer.alloc(0);
+    this.options = options;
   }
 
   _transform(chunk, encoding, callback) {
@@ -26,7 +34,7 @@ class BSONTransformStream extends Transform {
         }
 
         const docBuf = buffer.subarray(offset, offset + docSize);
-        const obj = BSON.deserialize(docBuf);
+        const obj = BSON.deserialize(docBuf, this.options);
 
         this.push(obj);
         offset += docSize;

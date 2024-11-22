@@ -33,14 +33,16 @@ Extends Node.js `Transform` stream to process BSON data.
 #### Constructor
 
 ```javascript
-new BSONTransformStream();
+new BSONTransformStream(options);
 ```
 
-Creates a new instance of `BSONTransformStream`.
+**Parameters:**
+
+- `options` (optional): An object containing BSON deserialization options. See [documentation](https://mongodb.github.io/node-mongodb-native/6.10/interfaces/BSON.DeserializeOptions.html) for available options.
 
 #### Events
 
-- **`'data'`**: Emitted for each parsed BSON document as a JavaScript object.
+- `data`: Emitted for each parsed BSON document as a JavaScript object.
 
 ## License
 
